@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- AppThere OS overlay on frameworks/base/core/res.
+     Layer 2 of desktop-windowing gating (see device/appthere/common/desktop.mk).
+
+     !! VERIFY AFTER FIRST SYNC: confirm each name below exists in
+        frameworks/base/core/res/res/values/config.xml for AOSP 17.
+        A config_* name that does not exist upstream is silently ignored,
+        so a typo here fails open and looks like "desktop mode just doesn't
+        turn on". scripts/verify-feature-knobs.sh checks this. -->
+<resources>
+    <!-- Desktop windowing -->
+    <bool name="config_isDesktopModeSupported">true</bool>
+    <bool name="config_isDesktopModeDevOptionSupported">true</bool>
+    <bool name="config_canInternalDisplayHostDesktops">true</bool>
+
+    <!-- Freeform windows: the underlying capability desktop mode builds on -->
+    <bool name="config_freeformWindowManagement">true</bool>
+
+    <!-- Let apps be resized even when they declare themselves unresizable;
+         essential for a usable desktop on large screens. -->
+    <bool name="config_letterboxIsEnabledForTranslucentActivities">true</bool>
+</resources>
